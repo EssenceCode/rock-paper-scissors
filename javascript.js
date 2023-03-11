@@ -59,7 +59,7 @@ playScore++;
 else if (result === lose) {// using increment(++) to increase compScore if won the round
 compScore++;
 } 
-else if (result === draw) {// using increment(++) to increase TieScore if nobody won the round
+else if (result === draw) {// using increment(++) to increase drawScore if nobody won the round
 drawScore++;}
 }
     if (playScore > compScore) { // an if statement that determines who won (or draw) the game based on the score variables
