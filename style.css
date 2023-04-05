@@ -1,0 +1,39 @@
+.game-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.player-container {
+    margin: 10px 30px;
+    padding: 25px;
+    max-width: 850px;
+    background: plum;
+    border: 1px solid darkmagenta;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.pyro:hover,
+.hydro:hover,
+.dendro:hover {
+    background-color: gold;
+}
+
+.result-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    
+    object-fit: cover;
+}
