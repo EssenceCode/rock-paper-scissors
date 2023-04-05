@@ -1,78 +1,85 @@
 // create a function that will get a random computer choice
 
-function computerChoice () {
-    
-   const compChoice = ['rock','paper','scissors'];  
+// make a function for computer random choice
+function computerChoice () { 
+   const compChoice = ['pyro','hydro','dendro'];  
    const randomChoice = compChoice[Math.floor(Math.random() * compChoice.length)];
    
    return randomChoice;       
   
 }
 
-
-// create a function that will play 1 round of rps
-
-  function playRound (player, computer) {
-    
+// function for selecting choice
+function playRound (player, computer) {
+  if (playerScore === 5 ) {
+      document.querySelector('.game-result').textContent = 'PLAYER WINS';
+     disableBtn();
+     //reset();
+ }   
+  else if (computerScore === 5) {
+      document.querySelector('.game-result').textContent = 'COMPUTER WINS';
+     disableBtn();
+     //reset();
+ }
+  else if (playerScore === 5 || computerScore === 5 ) {
+      document.querySelector('.game-result').textContent = 'DRAW';
+     disableBtn();
+     //reset();
+ }
   
-   if  (playerScore === 5 ) {
-       document.getElementById("resultsF").textContent = 'Round:Player wins ';  
-    }   
-   else if (computerScore === 5) {
-       document.getElementById("resultsF").textContent = 'Round:Computer wins '; 
-    }
-   else if (playerScore === 5 || computerScore === 5 ) {
-       document.getElementById("resultsF").textContent = 'Round:Draw '; 
-    }     
-
-   if (player === "rock" && computer === "scissors" || player === "paper" && computer === "rock" || player === "scissors" && computer === "paper") {
-      playerScore ++;
-      document.getElementById("results").textContent = 'you win ' + playerScore;      
-       
-    }
-   else if (computer === "rock" && player === "scissors" || computer === "paper" && player === "rock" || computer === "scissors" && player === "paper") {
-       computerScore ++;
-       document.getElementById("results").textContent = 'you lose '  + computerScore;       
-    }
-   else if (player === computer) {
-       
-       document.getElementById("results").textContent = 'it\'s draw ';        
-    } 
-
+  if (player === "pyro" && computer === "dendro" || player === "hydro" && computer === "pyro" || player === "dendro" && computer === "hydro") {
+      playerScore++;
+      document.querySelector('.round-result').textContent = 'you win';
+      document.querySelector('.player-score').textContent = `${playerScore}`;
+   }
+   else if (computer === "pyro" && player === "dendro" || computer === "hydro" && player === "pyro" || computer === "dendro" && player === "hydro") {
+      computerScore++;
+      document.querySelector('.round-result').textContent = 'you lose';
+      document.querySelector('.computer-score').textContent = `${computerScore}`;
+   }
+  else if (player === computer) {
+   document.querySelector('.round-result').textContent = 'it\'s draw ';
+   } 
 }
- 
-// parent
-const buttons = document.querySelector('#buttons');
 
-// select the child nodes
-  const rock = document.querySelector(".rock");
-  const paper = document.querySelector(".paper");
-  const scissors = document.querySelector(".scissors"); 
-// add addeventlistener to the child nodes
-  rock.addEventListener('click', () => {
-     playRound("rock", computerChoice());  
-   //console.log(playRound("rock", computerChoice()));   
- })  
+// score variable
+let playerScore = 0;
+let computerScore = 0;
 
- paper.addEventListener('click', () => {     
-     playRound("paper", computerChoice());  
-    //console.log(playRound("paper", computerChoice()));  
- })  
 
- scissors.addEventListener('click', () => {
-     playRound("scissors", computerChoice());  
-   //console.log(playRound("scissors", computerChoice()));  
-       
- });  
+// button nodes and event listener
+const pyro = document.querySelector('.pyro');
+pyro.addEventListener('click', () => {
+   playRound('pyro', computerChoice());
+   score();
+});
+const hydro = document.querySelector('.hydro');
+hydro.addEventListener('click', () => {
+   playRound('hydro', computerChoice());
+   score();
+});
+const dendro = document.querySelector('.dendro');
+dendro.addEventListener('click', () => {
+   playRound('hydro', computerChoice());
+   score();
+});
 
-// create a div to store results
-  const results = document.createElement('div');
-  results.setAttribute('id','results');
-  buttons.appendChild(results);  
-  const resultsF = document.createElement('div');
-  resultsF.setAttribute('id','resultsF')
-  buttons.appendChild(resultsF); 
-// variable to store scores
-  let playerScore = 0;
-  let computerScore = 0;
-//let drawScore = 0; don't need to count draw scores   
+// function that will display the score
+function score () {
+   document.querySelector('.player-score').textContent = `${playerScore}`;
+   document.querySelector('.computer-score').textContent = `${computerScore}`;
+}
+
+// create a function to disable the buttons when the winner is announced
+function disableBtn () {
+   let arrNodes = document.querySelectorAll('button');
+   for(let i = 0; i < arrNodes.length; i++) {
+      arrNodes[i].disabled = true;
+   }
+}
+
+function reset() {
+  // rounds = 0;
+   playerScore = 0;
+   computerScore = 0;
+ }
