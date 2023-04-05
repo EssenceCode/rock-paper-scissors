@@ -3,20 +3,40 @@
 
     <head>
         <meta charset="utf-8">
-        <title>The Odin's Rock, Paper and Scissors</title>
+        <title>ROCK PAPER SCISSORS</title>
+        <link rel="stylesheet" href="./style.css">
     </head>
 
     <body>
-         <div id = 'buttons'> 
-            <!-- buttons for each selector -->
-            <button class = 'rock'> ROCK </button>
-            <button class = 'paper'> PAPER </button>
-            <button class = 'scissors'> SCISSORS </button>
+     <div class="game-container">    
+        <div class="player-container">
+           <div class="btn container">
+            <button class="pyro">
+                <img src="img/pyro_slime.png">
+            </button>
+            <button class="hydro">
+                <img src="img/hydro_slime.png">
+            </button>
+            <button class="dendro">
+                <img src="img/dendro_slime.png">
+            </button>
+          </div>      
+        </div>
+
+         <div class="result-container">
+           <div class="players score">
+            <h3>Player Score</h3>
+            <p class = 'player-score'>0</p>
+            <h3>Computer Score</h3>
+            <p class = 'computer-score'>0</p>
+          </div>
           
-          
-          
+          <div class="final result">
+            <div class = 'round-result'></div>
+            <div class = 'game-result'></div>
           </div>  
-      
+         </div>
+    </div>
         <script src="javascript.js"></script>
     </body>
 
