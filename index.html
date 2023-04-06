@@ -11,20 +11,20 @@
      <div class="game-container">    
         <div class="player-container">
            <div class="btn container">
-            <button class="pyro">
+            <button class="pyro" id="btn-rps">
                 <img src="img/pyro_slime.png">
             </button>
-            <button class="hydro">
+            <button class="hydro" id="btn-rps">
                 <img src="img/hydro_slime.png">
             </button>
-            <button class="dendro">
+            <button class="dendro" id="btn-rps">
                 <img src="img/dendro_slime.png">
             </button>
           </div>      
         </div>
 
          <div class="result-container">
-           <div class="players score">
+           <div class="scores">
             <h3>Player Score</h3>
             <p class = 'player-score'>0</p>
             <h3>Computer Score</h3>
@@ -34,9 +34,16 @@
           <div class="final result">
             <div class = 'round-result'></div>
             <div class = 'game-result'></div>
-          </div>  
+        </div>  
+
+        <div class="reset-container">
+            <button class="reset-button">reset</button>
          </div>
+         </div>
+
+        
     </div>
+    
         <script src="javascript.js"></script>
     </body>
 
