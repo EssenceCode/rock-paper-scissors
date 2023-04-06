@@ -11,17 +11,17 @@ function computerChoice () {
 
 // function for selecting choice
 function playRound (player, computer) {
-  if (playerScore === 5 ) {
+  if (playerScore === 3 ) {
+      disableBtn();
       document.querySelector('.game-result').textContent = 'PLAYER WINS';
-     disableBtn();
      //reset();
  }   
-  else if (computerScore === 5) {
+  else if (computerScore === 3) {
+      disableBtn();  
       document.querySelector('.game-result').textContent = 'COMPUTER WINS';
-     disableBtn();
      //reset();
  }
-  else if (playerScore === 5 || computerScore === 5 ) {
+  else if (playerScore === 3 && computerScore === 3 ) {
       document.querySelector('.game-result').textContent = 'DRAW';
      disableBtn();
      //reset();
@@ -37,9 +37,9 @@ function playRound (player, computer) {
       document.querySelector('.round-result').textContent = 'you lose';
       document.querySelector('.computer-score').textContent = `${computerScore}`;
    }
-  else if (player === computer) {
-   document.querySelector('.round-result').textContent = 'it\'s draw ';
-   } 
+ // else if (player === computer) {
+ //  document.querySelector('.round-result').textContent = 'it\'s draw ';
+ //  } 
 }
 
 // score variable
@@ -63,7 +63,10 @@ dendro.addEventListener('click', () => {
    playRound('hydro', computerChoice());
    score();
 });
-
+const resetBtn = document.querySelector('.reset-button');
+resetBtn.addEventListener('click', () => {
+   reset();
+})
 // function that will display the score
 function score () {
    document.querySelector('.player-score').textContent = `${playerScore}`;
@@ -72,14 +75,23 @@ function score () {
 
 // create a function to disable the buttons when the winner is announced
 function disableBtn () {
-   let arrNodes = document.querySelectorAll('button');
+   let arrNodes = document.querySelectorAll('#btn-rps');
    for(let i = 0; i < arrNodes.length; i++) {
       arrNodes[i].disabled = true;
    }
 }
 
 function reset() {
-  // rounds = 0;
-   playerScore = 0;
+  //
    computerScore = 0;
+   document.querySelector('.computer-score').textContent = `${computerScore}`;
+   
+   playerScore = 0;
+   document.querySelector('.player-score').textContent = `${playerScore}`;
+   document.querySelector('.game-result').textContent = '';
+   let arrNodes = document.querySelectorAll('#btn-rps');
+   for(let i = 0; i < arrNodes.length; i++) {
+      arrNodes[i].disabled = false;
+   }
+  
  }
