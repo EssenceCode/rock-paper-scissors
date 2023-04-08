@@ -109,6 +109,10 @@
             const compPoke = document.querySelector('.computer-poke');
             userPoke.textContent = '';
             compPoke.textContent = '';
+            document.querySelector('.pyro').disabled = false;
+            document.querySelector('.hydro').disabled = false;
+            document.querySelector('.dendro').disabled = false;
+
         }
    }
 
