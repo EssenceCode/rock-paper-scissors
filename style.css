@@ -20,8 +20,70 @@
     flex-direction: row-reverse;
 }
 
-button > img {
+.buttons-container {
+    display: flex;
+    gap: 10px;
+}
+
+/** button images **/
+.button,
+#button {
     width: 200px;
     height: 200px;
     object-fit: cover;
+    border: 1px solid black;
+    borde-radius: 10px;
+    border-radius: 25px;
+
 }
+/** player button images **/
+.pyro,
+.hydro,
+.dendro {
+    background-color: blue; 
+}
+
+
+/** player disable button **/
+.disabled {
+    filter: brightness(0.7);
+    transform: scale(1);
+    cursor: disabled;
+    pointer-events: none;
+  }
+
+.allPick {
+    border: 1px solid #ffb900;
+    box-shadow: 0px 1px 5px 0px #ffb900;
+    transition: all 2s ease;
+    transform: scale(1.1);
+            
+}
+.comp-pyro,
+.comp-hydro,
+.comp-dendro {
+    background-color: red; 
+}
+
+.reset-button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }
+  
+  .reset-button:hover {background-color: #3e8e41}
+  
+  .reset-button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
