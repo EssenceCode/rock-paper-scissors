@@ -92,7 +92,8 @@
         else if (computerLife === 3) {
             disableBtn();
             document.querySelector('.game-results').textContent = 'COMPUTER WINS';  
-        } else {
+        } 
+        else if (playerLife === 3 && computerLife === 3) {
             document.querySelector('.game-results').textContent = 'GAME DRAW';  
         }
     }     
@@ -125,6 +126,7 @@ function mouseClick (e) {
     playRound(player);
     checkWin();
     addPoke ();
+    playSound(e);
     playerColor(e);
    // console.log(e.target)
 }
@@ -169,3 +171,20 @@ function mouseClick (e) {
     }
     const allBtns = document.querySelectorAll('.pyro, .hydro, .dendro');   
     allBtns.forEach(btns => btns.addEventListener('transitionend',playerRemove));
+
+// play sound function
+    function playSound (e) {
+        const charmander = document.querySelector('.charmander');
+        const squirtle = document.querySelector('.squirtle');
+        const bulbasaur = document.querySelector('.bulbasaur');
+
+        if (player === 'pyro') {
+            charmander.play()
+        }
+        if (player === 'hydro') {
+            squirtle.play()
+        }
+        if (player === 'dendro') {
+            bulbasaur.play()
+        }
+    }    
