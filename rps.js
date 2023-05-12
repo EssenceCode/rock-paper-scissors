@@ -73,10 +73,12 @@
 // reset button event listener
     gameReset.addEventListener('click', (e) => {
         resetBtn(e);
+        const resetAudio = document.querySelector('.reset-audio')
+        resetAudio.play();
     })     
 // function that disable buttons when reach 0
     function disableBtn () {
-        if (playerLife === 3 || computerLife === 3) {
+        if (playerLife === 5 || computerLife === 5) {
             pyro.classList.toggle('disabled');
             hydro.classList.toggle('disabled');
             dendro.classList.toggle('disabled');
@@ -85,15 +87,15 @@
     
 // check score to disable buttons
     function checkWin () {
-        if (playerLife === 3) {
+        if (playerLife === 5) {
             disableBtn();
             document.querySelector('.game-results').textContent = 'PLAYER WINS';  
         }
-        else if (computerLife === 3) {
+        else if (computerLife === 5) {
             disableBtn();
             document.querySelector('.game-results').textContent = 'COMPUTER WINS';  
         } 
-        else if (playerLife === 3 && computerLife === 3) {
+        else if (playerLife === 5 && computerLife === 5) {
             document.querySelector('.game-results').textContent = 'GAME DRAW';  
         }
     }     
